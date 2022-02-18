@@ -1,0 +1,11 @@
+---
+- name:  Update web servers
+  hosts: n1
+
+  tasks:
+  - name: Ensure File Copied
+    copy:
+      src: /home/ec2-user/Java.Jar
+      dest: /home/ec2-user/test 
+...
+
