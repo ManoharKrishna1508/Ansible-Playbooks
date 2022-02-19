@@ -1,0 +1,22 @@
+---
+- name:  Update n2 servers
+  hosts: n2
+  become: yes
+
+  tasks: 
+  - name: ensure http is installed
+    yum:
+      name: httpd
+      state: installed
+
+  - name: ensure http is started
+    service:
+      name: httpd
+      state: started
+
+  - name: ensure http is enabled
+    service:
+      name: httpd
+      enabled: yes
+...
+

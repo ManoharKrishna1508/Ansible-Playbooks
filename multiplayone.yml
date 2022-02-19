@@ -1,0 +1,40 @@
+---
+- name: Update N1
+  hosts: n1
+
+  tasks:
+  - name: Ensure Directory Created
+    file:
+      path: /home/ec2-user/Java.Ansible
+      state: directory 
+
+  - name: Ensure File Created
+    copy:
+      dest: /home/ec2-user/Maven.Jar
+      content: Maven 
+
+- name:  Update N2
+  hosts: n2
+ 
+  tasks:
+  - name: Ensure Directory Created
+    file:
+      path: /home/ec2-user/Java.Ansible
+      state: directory
+
+  - name: Ensure File Created
+    copy:
+      dest: /home/ec2-user/Junit.Jar
+      content: Junit
+
+- name: Update web servers
+  hosts: web
+
+  tasks:
+  - name: Ensure File Created
+    copy:
+      dest: /home/ec2-user/Infra.Jar
+      content: infra
+
+...
+

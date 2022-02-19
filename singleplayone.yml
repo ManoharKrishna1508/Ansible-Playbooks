@@ -1,6 +1,7 @@
 ---
 - name:  Update web servers
   hosts: n1
+  become: yes
 
   tasks:
   - name: Ensure File Copied
