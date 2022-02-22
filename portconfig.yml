@@ -1,0 +1,17 @@
+---
+- name:  Update n2 servers
+  hosts: n1
+  become: yes
+
+  tasks: 
+  - name: ensure config is updated
+    copy:
+      src: httpd.conf
+      dest: /etc/httpd/conf/httpd.conf
+
+  - name: ensure http is enabled
+    service:
+      name: httpd
+      state: restarted
+...
+
