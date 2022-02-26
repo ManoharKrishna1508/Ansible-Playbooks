@@ -1,0 +1,21 @@
+---
+- name:  Update n1 servers
+  hosts: all
+  become: yes
+  vars: 
+    username: mano
+
+  tasks: 
+  - name: ensure static file is updated
+    copy:
+      src: static.html
+      dest: /var/www/html/static.html
+
+  - name: ensure dymanic file is updated
+    template:
+      src: static.j2
+      dest: /var/www/html/dynamic.html
+
+
+...
+

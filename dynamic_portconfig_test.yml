@@ -1,0 +1,19 @@
+---
+- name:  Update n2 servers
+  hosts: n1
+  become: yes
+  vars: 
+    http_port: 8081
+
+  tasks: 
+  - name: ensure config is updated
+    template:
+      src: httpd.j2
+      dest: /etc/httpd/conf/httpd.conf
+
+  - name: ensure http is enabled
+    service:
+      name: httpd
+      state: restarted
+...
+
